@@ -53,7 +53,7 @@ class DashboardController extends Controller
 
     function getpayments(){
 
-        $rcntpay=appoinment::join('payments','payments.app_apno','=','appoinments.apno')->where('appoinments.apstatus','=',null)->orderBy('appoinments.created_at','desc')->get()->take(5);
+        $rcntpay=appoinment::join('payments','payments.app_apno','=','appoinments.apno')->orderBy('appoinments.created_at','desc')->get()->take(5);
         $html='';
         for($i=0;$i<count($rcntpay);$i++){
 
