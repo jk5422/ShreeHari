@@ -73,7 +73,7 @@ Route::get('appoinments-take', function(){
 Route::post('register', [PatientController::class, 'register']);
 Route::post('contact', [ContactController::class, 'contact']);
 Route::post('login', [PatientController::class, 'login']);
-Route::post('/forgot/sendemail',[ForgotpassController::class,'sendemail']);
+Route::post('forgot/sendemail',[ForgotpassController::class,'sendemail']);
 Route::post('forgot/getotp',[ForgotpassController::class,'getotp']);
 Route::post('forgot/resendemail',[ForgotpassController::class,'resendemail']);
 Route::post('forgot/setnewcred',[ForgotpassController::class,'setnewcredentials']);

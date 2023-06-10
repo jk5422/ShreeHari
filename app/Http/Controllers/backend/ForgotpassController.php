@@ -33,7 +33,7 @@ class ForgotpassController extends Controller
 
                 $otp=password_generate(6);
 
-                if(Session('ptop')=="" && Session('pemail')==""){
+                if(Session('potp')=="" && Session('pemail')==""){
                     $req->session()->put('potp',$otp);
                     $req->session()->put('pemail',$req->input('fusername'));
                 }
