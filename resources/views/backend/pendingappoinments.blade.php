@@ -148,7 +148,7 @@
                                             <legend style="font-size: 15px;">Select Status</legend>
                                             <input type="radio" class="" name="upast" id="confirm"
                                                 value="1">
-                                            <label for="confirm">Confirm</label>
+                                            <label for="confirm">Visited</label>
                                             <input type="radio" class="" name="upast" id="cancel"
                                                 value="0">
                                             <label for="cancel">Cancel</label>
@@ -157,6 +157,7 @@
                                         <label for="cancel">Pending</label>
                                         </fieldset>
                                     </div>
+                                    <p class="text-danger">Once You have tick Visited Appointment after you are not be able to modify Prescription Details.</p>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Save Changes</button>
@@ -307,7 +308,7 @@
                                                     <td>
                                                         <input type="text" id="remark"  placeholder="Remarks">
                                                     </td>
-                                                    <td><button type="button" class="btn btn-primary" id="add">Add More</button></td>
+                                                    <td><button type="button" class="btn btn-primary" id="add">Add</button></td>
                                                 </tr>
                                             </tbody>
                                         </table>

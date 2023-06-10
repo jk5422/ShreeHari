@@ -62,6 +62,7 @@
                                         <th>Associated Clinic</th>
                                         <th>Appoinment</th>
                                         <th>Prescription</th>
+                                        <th>Cancellation</th>
                                     </tr>
                                 </thead>
                         </div>
@@ -85,7 +86,11 @@
 
                                         @if ($item->apstatus=='1')
                                         <td><a href="" type="button" class="btn btn-warning" onclick=" window.open('prescription/pdf/{{$item->apno}}', '_blank', 'width=800, height=500');">P-View</a></td>
-                                         @elseif ($item->apstatus=='2')
+                                         @else
+                                         <td>N/A</td>
+                                         @endif
+
+                                         @if ($item->apstatus=='2')
                                          <td><button type="button" class="btn btn-danger" value="{{$item->apno}}" onclick="setapno(this.value);" data-bs-toggle="modal" data-bs-target="#confirm">Cancellation</button></td>
                                          @else
                                          <td>N/A</td>
