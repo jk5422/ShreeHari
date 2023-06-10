@@ -52,7 +52,7 @@
 			    		</div>
 			    		<div class="checkbox">
 			    	    	<label>
-			    	    		<input  type="checkbox" onclick="showpass()"> Show Password
+			    	    		<input  type="checkbox" onclick="newpass()"> Show Password
 			    	    	</label>
 
 			    	    </div>
