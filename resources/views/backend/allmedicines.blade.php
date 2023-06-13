@@ -98,13 +98,13 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ url('allmedicines/mupdate') }}" method="POST">
+                        <form action="{{ url('allmedicines/mupdate') }}" method="POST" id="updatemed">
                             @csrf
                             <div class="row h-100 align-items-center justify-content-center">
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                     <div class="form-floating mb-3">
                                         <select name="umedid" id="umedid" class="form-control bg-white"
-                                            onchange="getmedicinedata(this.value)">
+                                            onchange="getmedicinedata(this.value)" required data-parsley-required-message="Please select medicine name">
                                         </select>
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@
                             <div class="row h-100 align-items-center justify-content-center">
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control mdname" name="umedname" placeholder="Clinic Name" required>
+                                        <input type="text" class="form-control mdname" name="umedname" placeholder="Clinic Name">
                                         <label>Medicine Name</label>
                                     </div>
                                 </div>
@@ -153,12 +153,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ url('allmedicines/madd') }}" method="POST">
+                    <form action="{{ url('allmedicines/madd') }}" method="POST" id="addmed">
                         @csrf
                         <div class="row h-100 align-items-center justify-content-center">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="medname" placeholder="Clinic Name">
+                                    <input type="text" class="form-control" name="medname" placeholder="Medicine Name" required data-parsley-required-message="Please enter medicine name" data-parsley-pattern="^([a-zA-Z0-9]+\s)*[a-zA-Z0-9]+$" data-parsley-pattern-message="please enter only characters" data-parsley-minlength="3" data-parsley-minlength-message="Name should be minimum 3 character" data-parsley-trigger="keyup">
                                     <label>Medicine Name</label>
                                 </div>
                             </div>
@@ -166,7 +166,7 @@
                         <div class="row h-100 align-items-center justify-content-center">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 <div class="form-floating mb-3">
-                                    <select name="medaddr" id="medaddr" class="form-control">
+                                    <select name="medaddr" id="medaddr" class="form-control" required data-parsley-required-message="Please select doctor name">
 
                                     </select>
                                     <label>Medicine Added By</label>
@@ -197,13 +197,13 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ url('allmedicines/mdel') }}" method="POST">
+                        <form action="{{ url('allmedicines/mdel') }}" method="POST" id="dmedicine">
                             @csrf
                             <div class="row h-100 align-items-center justify-content-center">
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                     <div class="form-floating mb-3">
                                         <select name="dmedid" id="dmedid" class="form-control bg-white"
-                                            onchange="getmedicinedata(this.value)">
+                                            onchange="getmedicinedata(this.value)"required data-parsley-required-message="Please select medicine name">
                                         </select>
                                     </div>
                                 </div>

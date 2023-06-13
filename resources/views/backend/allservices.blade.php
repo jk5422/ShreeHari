@@ -99,13 +99,13 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ url('allservices/supdate') }}" method="POST">
+                        <form action="{{ url('allservices/supdate') }}" method="POST" id="updateser">
                             @csrf
                             <div class="row h-100 align-items-center justify-content-center">
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                     <div class="form-floating mb-3">
                                         <select name="usid" id="usid" class="form-control bg-white"
-                                            onchange="getservices(this.value)">
+                                            onchange="getservices(this.value)" required data-parsley-required-message="Please select service name">
                                         </select>
                                     </div>
                                 </div>
@@ -113,7 +113,7 @@
                             <div class="row h-100 align-items-center justify-content-center">
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control srname" name="usrnm" placeholder="Service Name" required>
+                                        <input type="text" class="form-control srname" name="usrnm" placeholder="Service Name">
                                         <label>Service Name</label>
                                     </div>
                                 </div>
@@ -165,12 +165,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ url('allservices/sadd') }}" method="POST">
+                    <form action="{{ url('allservices/sadd') }}" method="POST" id="addnservice">
                         @csrf
                         <div class="row h-100 align-items-center justify-content-center">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="sname" placeholder="Service Name">
+                                    <input type="text" class="form-control" name="sname" placeholder="Service Name" required data-parsley-required-message="Please enter  service name" data-parsley-pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$" data-parsley-pattern-message="please enter only characters" data-parsley-minlength="3" data-parsley-minlength-message="Name should be minimum 3 character" data-parsley-trigger="keyup">
                                     <label>Service Name</label>
                                 </div>
                             </div>
@@ -178,7 +178,7 @@
                         <div class="row h-100 align-items-center justify-content-center">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 <div class="form-floating mb-3">
-                                    <select name="sadddr" id="sadddr" class="form-control" onchange="assoclinic(this.value)">
+                                    <select name="sadddr" id="sadddr" class="form-control" onchange="assoclinic(this.value)" required data-parsley-required-message="Please select doctor name">
 
                                     </select>
                                     <label>Service Add By</label>
@@ -220,13 +220,13 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ url('allservices/sdel') }}" method="POST">
+                        <form action="{{ url('allservices/sdel') }}" method="POST" id="dservice">
                             @csrf
                             <div class="row h-100 align-items-center justify-content-center">
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                     <div class="form-floating mb-3">
                                         <select name="dsrid" id="dsrid" class="form-control bg-white"
-                                            onchange="getservices(this.value)">
+                                            onchange="getservices(this.value)"required data-parsley-required-message="Please select service name">
                                         </select>
                                     </div>
                                 </div>

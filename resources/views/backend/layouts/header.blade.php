@@ -33,6 +33,7 @@
 
 
     <script src="{{url('backend/js/jquery341.js')}}"></script>
+    <script src="{{url('backend/js/parsley.js')}}"></script>
 
 </head>
 

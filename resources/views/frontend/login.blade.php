@@ -34,14 +34,14 @@
 			    	<h3 class="panel-title">Sign In</h3>
 			 	</div>
 			  	<div class="panel-body">
-			    	<form method="POST" action="login" role="form" >
+			    	<form method="POST" action="login" role="form" id="login">
                         @csrf
                     <fieldset>
 			    	  	<div class="form-group">
-			    		    <input class="form-control" placeholder="Your Email or Mobile" name="ptlgnm" type="text">
+			    		    <input class="form-control" placeholder="Your Email or Mobile" name="ptlgnm" type="text" required data-parsley-required-message="Please enter email or mobile no."   data-parsley-trigger="keyup">
 			    		</div>
 			    		<div class="form-group">
-			    			<input class="form-control" placeholder="Your Password" name="ptlgpass" type="password" id="password">
+			    			<input class="form-control" placeholder="Your Password" name="ptlgpass" type="password" id="password" required data-parsley-required-message="Please enter password"   data-parsley-trigger="keyup">
 			    		</div>
 			    		<div class="checkbox">
 			    	    	<label>

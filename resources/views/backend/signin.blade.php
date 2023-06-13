@@ -75,16 +75,16 @@
                             {{-- </a> --}}
                             {{-- <h3>Sign In</h3> --}}
                         </div>
-                        <form action="{{url('/doctor/dlog')}}" method="POST">
+                        <form action="{{url('/doctor/dlog')}}" method="POST" id="doclogin">
                             @csrf
                             <div class="form-floating mb-3">
                                 <input type="text" name="username" class="form-control" id="floatingInput"
-                                    placeholder="name@example.com">
+                                    placeholder="name@example.com" required data-parsley-required-message="Please enter mobile no or email">
                                 <label for="floatingInput">Email Or Mobile</label>
                             </div>
                             <div class="form-floating mb-4">
                                 <input type="password" name="password" class="form-control" id="password"
-                                    placeholder="Password">
+                                    placeholder="Password"  required data-parsley-required-message="Please enter password">
                                 <label >Password</label>
                             </div>
                             <div class="d-flex align-items-center justify-content-between mb-4">
@@ -117,6 +117,7 @@
 
     <!-- Template Javascript -->
     <script src="{{ url('backend/js/main.js') }}"></script>
+    <script src="{{ url('backend/js/parsley.js') }}"></script>
     <script>
         function showlog() {
         var x = document.getElementById("password");
@@ -130,6 +131,9 @@
 
     $(".alert").fadeTo(2000, 500).fadeOut(500, function() {
         $(".alert").fadeOut(500);
+    });
+    $(document).ready(function() {
+        $('#doclogin').parsley();
     });
     </script>
 </body>

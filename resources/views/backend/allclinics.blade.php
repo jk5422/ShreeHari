@@ -100,13 +100,13 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ url('allclinics/cupdate') }}" method="POST">
+                        <form action="{{ url('allclinics/cupdate') }}" method="POST" id="updatecli">
                             @csrf
                             <div class="row h-100 align-items-center justify-content-center">
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                     <div class="form-floating mb-3">
                                         <select name="cid" id="nclnc" class="form-control bg-white"
-                                            onchange="getclinicdata(this.value)">
+                                            onchange="getclinicdata(this.value)" required data-parsley-required-message="Please select clinic name">
                                         </select>
                                     </div>
                                 </div>
@@ -167,19 +167,19 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ url('allclinic/cadd') }}" method="POST">
+                    <form action="{{ url('allclinic/cadd') }}" method="POST" id="addcli">
                         @csrf
                         <div class="row h-100 align-items-center justify-content-center">
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="cname" placeholder="Clinic Name">
+                                    <input type="text" class="form-control" name="cname" placeholder="Clinic Name" required data-parsley-required-message="Please enter clinic name" data-parsley-pattern="^([a-zA-Z&-]+\s)*[a-zA-Z]+$" data-parsley-pattern-message="please enter only characters" data-parsley-minlength="3" data-parsley-minlength-message="Name should be minimum 3 character" >
                                     <label>Clinic Name</label>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                 <div class="form-floating mb-3">
                                     <input type="email" class="form-control" name="cemail"
-                                        placeholder="Clinic Email">
+                                        placeholder="Clinic Email" required data-parsley-required-message="Please enter email address" data-parsley-type="email" data-parsley-type-message="Please enter valid email address "  data-parsley-trigger="keyup">
                                     <label>Clinic Email</label>
                                 </div>
                             </div>
@@ -188,13 +188,13 @@
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                 <div class="form-floating mb-3">
                                     <input type="tel" class="form-control" name="cmobile" maxlength="10"
-                                        placeholder="Clinic Mobile">
+                                        placeholder="Clinic Mobile" required data-parsley-required-message="Please enter mobile number" data-parsley-type="number" data-parsley-type-message="Please enter valid mobile number"  data-parsley-pattern="^[1-9]{1}[0-9]{9}$" data-parsley-pattern-message="Please enter valid mobile number" data-parsley-maxlength="10" data-parsley-maxlength-message="Mobile number should be exactly 10 digit" data-parsley-minlength="10" data-parsley-minlength-message="Mobile number should be exactly 10 digit" data-parsley-trigger="keyup">
                                     <label>Clinic Mobile</label>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                 <div class="form-floating mb-3">
-                                   <textarea class="form-control" name="caddress" cols="30" rows="3"></textarea>
+                                   <textarea class="form-control" name="caddress" cols="30" rows="3" required data-parsley-required-message="Please enter address" data-parsley-minlength="15" data-parsley-minlength-message="Address should be minimum 15 character"  data-parsley-trigger="keyup"></textarea>
                                     <label>Clinic Address</label>
                                 </div>
                             </div>
@@ -222,13 +222,13 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ url('allclinics/delclinic') }}" method="POST">
+                        <form action="{{ url('allclinics/delclinic') }}" method="POST" id="dclinic">
                             @csrf
                             <div class="row h-100 align-items-center justify-content-center">
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                     <div class="form-floating mb-3">
                                         <select name="cid" id="dclnc" class="form-control bg-white"
-                                            onchange="getclinicdata(this.value)">
+                                            onchange="getclinicdata(this.value)" required data-parsley-required-message="Please select clinic name">
                                         </select>
                                     </div>
                                 </div>

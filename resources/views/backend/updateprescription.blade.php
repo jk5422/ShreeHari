@@ -35,7 +35,7 @@
             <div class="row h-100 align-items-center justify-content-center">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
-                    <form action="{{url('pendappoinments/updateprescription')}}" method="POST">
+                    <form action="{{url('pendappoinments/updateprescription')}}" method="POST" id="updatepre">
                         @csrf
                     <div class="table-responsive">
                         <table class="table table-primary" border="1" id="chngprescribe">
@@ -53,7 +53,7 @@
                             <tbody id="newdata">
                                 <tr>
                                     <td scope="row">
-                                        <select id="chngmedid"></select></td>
+                                        <select id="chngmedid"  required data-parsley-required-message="Please select medicine name"></select></td>
                                     <td>
                                         <select id="mrng">
                                             <option value="">--Select--</option>

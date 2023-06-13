@@ -31,31 +31,34 @@
                         <hr>
                         <h3 class="text-center">Profile Settings</h3>
                     </div>
-                    <form action="/profile-update" method="POST">
+                    <form action="/profile-update" method="POST" id="pprofile">
                         @csrf
                         <div class="row mt-2">
                             <div class="col-md-6">
                                 <input type="hidden" name="pid" value="{{ $data[0]['pid'] }}">
                                 <label class="labels">Name</label>
                                 <input type="text" class="form-control" placeholder="full name" name="pname"
-                                    value="{{ $data[0]['pname'] }}">
+                                    value="{{ $data[0]['pname'] }}" required data-parsley-required-message="Please enter name" data-parsley-pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$" data-parsley-pattern-message="please enter only characters" data-parsley-minlength="3" data-parsley-minlength-message="Name should be minimum 3 character" data-parsley-trigger="keyup">
                             </div>
                             <div class="col-md-6">
                                 <label class="labels">Mobile</label>
                                 <input type="tel" class="form-control" placeholder="Mobile" name="pmobile"
-                                    maxlength="10" value="{{ $data[0]['pmobile'] }}">
+                                    maxlength="10" value="{{ $data[0]['pmobile'] }}"required data-parsley-required-message="Please enter mobile number" data-parsley-type="number" data-parsley-type-message="Please enter valid mobile number"  data-parsley-pattern="^[1-9]{1}[0-9]{9}$" data-parsley-pattern-message="Please enter valid mobile number" data-parsley-maxlength="10" data-parsley-maxlength-message="Mobile number should be exactly 10 digit" data-parsley-minlength="10" data-parsley-minlength-message="Mobile number should be exactly 10 digit" data-parsley-trigger="keyup">
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-12">
                                 <label class="labels">Email</label>
                                 <input type="email" class="form-control" name="pemail" placeholder="enter email"
-                                    value="{{ $data[0]['pemail'] }}">
+                                    value="{{ $data[0]['pemail'] }}" required data-parsley-required-message="Please enter email address" data-parsley-type="email" data-parsley-type-message="Please enter valid email address "  data-parsley-trigger="keyup">
                             </div>
                             <div class="col-md-12">
                                 <label class="labels">Age</label>
                                 <input type="text" class="form-control" name="page" placeholder="Age"
-                                    value="{{ $data[0]['page'] }}">
+                                    value="{{ $data[0]['page'] }}" required data-parsley-required-message="Please enter age"
+							data-parsley-type="number" min="1" max="120"
+							data-parsley-type-message="Please enter only number" data-parsley-min-message="Age must be greater than 1"
+							data-parsley-range-message="Please enter valid age"   data-parsley-trigger="keyup">
                             </div>
                             <div class="col-md-12">
                                 <label class="labels">Gender</label>
@@ -67,7 +70,7 @@
                             <div class="col-md-12">
                                 <label class="labels">Address</label>
                                 <input type="text" name="paddress" class="form-control" placeholder="enter address line"
-                                    value="{{ $data[0]['paddress'] }}">
+                                    value="{{ $data[0]['paddress'] }}" required data-parsley-required-message="Please enter address" data-parsley-minlength="15" data-parsley-minlength-message="Address should be minimum 15 character"  data-parsley-trigger="keyup">
                             </div>
 
                         </div>

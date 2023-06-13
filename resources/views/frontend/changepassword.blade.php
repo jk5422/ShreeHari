@@ -24,27 +24,27 @@
                         <hr>
                         <h3 class="text-center">Change Password</h3>
                     </div>
-                    <form action="/password-update" method="POST">
+                    <form action="/password-update" method="POST" id="changepass">
                         @csrf
                         <div class="row mt-2">
                             <div class="col-md-12">
                                 <input type="hidden" name="pid" value="{{ $data->pid}}">
                                 <label class="labels">Old Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="old password" name="opass">
+                                <input type="password" class="form-control" id="password" placeholder="old password" name="opass" required data-parsley-required-message="Please enter password">
                             </div>
 
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-12">
                                 <label class="labels">New Password</label>
-                                <input type="password" class="form-control" id="npassword" placeholder="New Password" name="npass">
+                                <input type="password" class="form-control" id="npassword" placeholder="New Password" name="npass" required data-parsley-required-message="Please enter new password" data-parsley-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/" data-parsley-pattern-message=" a password must be 8 character including one uppercase letter, one special character and one number"  data-parsley-trigger="keyup">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-12">
                                 <label class="labels">Confirm Password</label>
-                                <input type="password" class="form-control" id="cpassword" name="cnpass" placeholder="Confirm New Password">
+                                <input type="password" class="form-control" id="cpassword" name="cnpass" placeholder="Confirm New Password" required data-parsley-required-message="Please enter confirm password" data-parsley-equalto="#npassword" data-parsley-equalto-message="Password are not matching"  data-parsley-trigger="keyup">
                             </div>
                         </div>
 

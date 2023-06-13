@@ -111,13 +111,13 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ url('alldoctor/udoc') }}" method="POST">
+                        <form action="{{ url('alldoctor/udoc') }}" method="POST" id="updatedoc">
                             @csrf
                             <div class="row h-100 align-items-center justify-content-center">
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                     <div class="form-floating mb-3">
                                         <select name="did" id="udocnm" class="form-control bg-white"
-                                            onchange="getdocdata(this.value)">
+                                            onchange="getdocdata(this.value)" required data-parsley-required-message="Please select doctor name" data-parsley-trigger="keyup">
                                         </select>
                                     </div>
                                 </div>
@@ -126,14 +126,15 @@
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control dname" name="dname"
-                                            placeholder="name@example.com">
+                                            placeholder="name@example.com"
+                                            >
                                         <label>Dr.Name</label>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                     <div class="form-floating mb-3">
                                         <input type="email" class="form-control demail" name="demail"
-                                            placeholder="name@example.com">
+                                            placeholder="name@example.com" >
                                         <label>Dr.Email</label>
                                     </div>
                                 </div>
@@ -142,14 +143,14 @@
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                     <div class="form-floating mb-3">
                                         <input type="tel" class="form-control dmobile" name="dmobile" maxlength="10"
-                                            placeholder="9574245123">
+                                            placeholder="9574245123" >
                                         <label>Dr.Mobile</label>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control dqual" name="dqual"
-                                            placeholder="MBBS">
+                                            placeholder="MBBS"  >
                                         <label>Dr.Qualification</label>
                                     </div>
                                 </div>
@@ -173,14 +174,14 @@
 
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                     <div class="mb-3">
-                                        <select name="dclinic" id="dclinic" class="form-control dclinic bg-white">
+                                        <select name="dclinic" id="dclinic" class="form-control dclinic bg-white" >
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                     <div class="form-floating mb-3">
-                                        <textarea name="daddress" class="form-control daddress" id="dadd" cols="20" rows="5"></textarea>
+                                        <textarea name="daddress" class="form-control daddress" id="dadd" cols="20" rows="5" ></textarea>
                                         <label for="dadd">Dr.Address</label>
                                     </div>
                                 </div>
@@ -211,19 +212,19 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ url('adddoctor/dadd') }}" method="POST">
+                    <form action="{{ url('adddoctor/dadd') }}" method="POST" id="adddoc">
                         @csrf
                         <div class="row h-100 align-items-center justify-content-center">
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="dname" placeholder="Full Name">
+                                    <input type="text" class="form-control" name="dname" placeholder="Full Name" required data-parsley-required-message="Please enter name" data-parsley-pattern="^([a-zA-Z]+.+\s)*([a-zA-Z]+\s)*[a-zA-Z]+$" data-parsley-pattern-message="please enter only characters" data-parsley-minlength="3" data-parsley-minlength-message="Name should be minimum 3 character" data-parsley-trigger="keyup">
                                     <label>Doctor Name</label>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                 <div class="form-floating mb-3">
                                     <input type="email" class="form-control" name="demail"
-                                        placeholder="name@example.com">
+                                        placeholder="name@example.com" required data-parsley-required-message="Please enter email address" data-parsley-type="email" data-parsley-type-message="Please enter valid email address "  data-parsley-trigger="keyup">
                                     <label>Doctor Email</label>
                                 </div>
                             </div>
@@ -232,13 +233,13 @@
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                 <div class="form-floating mb-3">
                                     <input type="tel" class="form-control" name="dmobile" maxlength="10"
-                                        placeholder="9574245123">
+                                        placeholder="9574245123" required data-parsley-required-message="Please enter mobile number" data-parsley-type="number" data-parsley-type-message="Please enter valid mobile number"  data-parsley-pattern="^[1-9]{1}[0-9]{9}$" data-parsley-pattern-message="Please enter valid mobile number" data-parsley-maxlength="10" data-parsley-maxlength-message="Mobile number should be exactly 10 digit" data-parsley-minlength="10" data-parsley-minlength-message="Mobile number should be exactly 10 digit" data-parsley-trigger="keyup">
                                     <label>Doctor Mobile</label>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="dqual" placeholder="MBBS">
+                                    <input type="text" class="form-control" name="dqual" placeholder="MBBS" required data-parsley-required-message="Please enter qualification" data-parsley-pattern="^([a-zA-Z]+.)*([a-zA-Z])+([(\)])" data-parsley-pattern-message="Please enter only characters" data-parsley-minlength="2" data-parsley-minlength-message="Please enter valid qualification" data-parsley-trigger="keyup">
                                     <label>Doctor Qualification</label>
                                 </div>
                             </div>
@@ -247,7 +248,7 @@
                         <div class="row h-100 align-items-center justify-content-center">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 <div class="mb-3">
-                                    <fieldset class="form-control bg-white">
+                                    <fieldset class="form-control bg-white" required>
                                         <legend style="font-size: 15px;">Select Gender</legend>
                                         <input type="radio" name="dgen" id="male" value="M">
                                         <label for="male">Male</label>
@@ -262,14 +263,14 @@
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                 <div class="form-floating mb-3">
                                     <input type="password" name="dpass" class="form-control" id="password"
-                                        placeholder="Password">
+                                        placeholder="Password" required data-parsley-required-message="Please enter password" data-parsley-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/" data-parsley-pattern-message=" a password must be 8 character including one uppercase letter, one special character and one number"  data-parsley-trigger="keyup">
                                     <label for="">Password</label>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                 <div class="form-floating mb-3">
                                     <input type="password" name="dcpass" class="form-control" id="cpassword"
-                                        placeholder="Confirm password">
+                                        placeholder="Confirm password"  required data-parsley-required-message="Please enter confirm password" data-parsley-equalto="#password" data-parsley-equalto-message="Password are not matching"  data-parsley-trigger="keyup">
                                     <label for="">Confirm Password</label>
                                 </div>
                             </div>
@@ -278,14 +279,14 @@
 
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                 <div class="mb-3">
-                                    <select name="dclnc" id="dclnc" class="form-control bg-white">
+                                    <select name="dclnc" id="dclnc" class="form-control bg-white" required data-parsley-required-message="Please select clinic name">
                                     </select>
                                 </div>
                             </div>
 
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                 <div class="form-floating mb-3">
-                                    <textarea name="daddress" class="form-control" id="dadd" cols="20" rows="5"></textarea>
+                                    <textarea name="daddress" class="form-control" id="dadd" cols="20" rows="5" required data-parsley-required-message="Please enter address" data-parsley-minlength="15" data-parsley-minlength-message="Address should be minimum 15 character"  data-parsley-trigger="keyup"></textarea>
                                     <label for="dadd">Doctor Address</label>
                                 </div>
                             </div>
@@ -321,13 +322,13 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ url('alldoctor/deldoc') }}" method="POST">
+                    <form action="{{ url('alldoctor/deldoc') }}" method="POST" id="ddoctor">
                         @csrf
                         <div class="row h-100 align-items-center justify-content-center">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 <div class="form-floating mb-3">
                                     <select name="did" id="deldocnm" class="form-control bg-white"
-                                        onchange="getdocdata(this.value)">
+                                        onchange="getdocdata(this.value)" required data-parsley-required-message="Please select doctor name">
                                     </select>
                                 </div>
                             </div>
@@ -361,14 +362,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ url('alldoctor/changepass') }}" method="POST">
+                    <form action="{{ url('alldoctor/changepass') }}" method="POST" id="changedpass">
                         @csrf
 
                         <div class="row h-100 align-items-center justify-content-center">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 <div class="form-floating mb-3">
                                     <select name="did" id="chngpass" class="form-control bg-white"
-                                        onchange="getdocdata(this.value)">
+                                        onchange="getdocdata(this.value)" required data-parsley-required-message="Please select doctor name">
                                     </select>
                                 </div>
                             </div>
@@ -378,7 +379,7 @@
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 <div class="form-floating mb-3">
                                     <input type="password" name="dopass" class="form-control" id="dopass"
-                                        placeholder="Password">
+                                        placeholder="Password" required data-parsley-required-message="Please enter old password">
                                     <label for="">Old Password</label>
                                 </div>
                             </div>
@@ -387,7 +388,7 @@
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 <div class="form-floating mb-3">
                                     <input type="password" name="dnpass" class="form-control" id="dnpass"
-                                        placeholder="New password">
+                                        placeholder="New password" required data-parsley-required-message="Please enter password" data-parsley-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/" data-parsley-pattern-message=" a password must be 8 character including one uppercase letter, one special character and one number"  data-parsley-trigger="keyup">
                                     <label for="">New Password</label>
                                 </div>
                             </div>
@@ -397,7 +398,7 @@
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 <div class="form-floating mb-3">
                                     <input type="password" name="dcpass" class="form-control" id="dcpass"
-                                        placeholder="Confirm password">
+                                        placeholder="Confirm password" required data-parsley-required-message="Please enter confirm password" data-parsley-equalto="#dnpass" data-parsley-equalto-message="Password are not matching"  data-parsley-trigger="keyup">
                                     <label for="">ConfirmPassword</label>
                                 </div>
                             </div>
@@ -473,6 +474,8 @@
         });
 
         function getdocdata(did) {
+            $('.dgenm').attr('checked', false);
+            $('.dgenf').attr('checked', false);
             $.ajax({
                 url: '/getdocdetails',
                 type: 'post',
@@ -487,8 +490,14 @@
 
                         if (res['data'][0]['dgender'] == 'M') {
                             $('.dgenm').attr('checked', true);
-                        } else {
+                        }
+                         else if(res['data'][0]['dgender'] == 'F') {
                             $('.dgenf').attr('checked', true);
+                        }
+                        else
+                        {
+                            $('.dgenm').attr('checked', false);
+                            $('.dgenf').attr('checked', false);
                         }
                         $('.daddress').val(res['data'][0]['daddress']);
                         $('.dclinic').val(res['data'][0]['cname']).prop('selectedIndex', res['data'][0]['cid']);

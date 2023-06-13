@@ -16,21 +16,25 @@
 			    	<h3 class="panel-title">Sign Up </h3>
 			 	</div>
 			  	<div class="panel-body">
-			    	<form method="POST" action="register" role="form" >
+			    	<form method="POST" action="register" role="form" id="register"  >
                         @csrf
                     <fieldset>
 			    	  	<div class="form-group">
-			    		    <input class="form-control" placeholder="Your Full Name" name="pname" type="text">
+			    		    <input class="form-control" placeholder="Your Full Name" name="pname" type="text" required data-parsley-required-message="Please enter name" data-parsley-pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$" data-parsley-pattern-message="please enter only characters" data-parsley-minlength="3" data-parsley-minlength-message="Name should be minimum 3 character" data-parsley-trigger="keyup">
 			    		</div>
                         <div class="form-group">
-			    		    <input class="form-control" placeholder="Your Mobile" name="pmobile" maxlength="10" type="tel">
+			    		    <input class="form-control" placeholder="Your Mobile" name="pmobile" maxlength="10" type="tel"
+							required data-parsley-required-message="Please enter mobile number" data-parsley-type="number" data-parsley-type-message="Please enter valid mobile number"  data-parsley-pattern="^[1-9]{1}[0-9]{9}$" data-parsley-pattern-message="Please enter valid mobile number" data-parsley-maxlength="10" data-parsley-maxlength-message="Mobile number should be exactly 10 digit" data-parsley-minlength="10" data-parsley-minlength-message="Mobile number should be exactly 10 digit" data-parsley-trigger="keyup">
 			    		</div>
                         <div class="form-group">
-			    		    <input class="form-control" placeholder="Your Email" name="pemail" type="email">
+			    		    <input class="form-control" placeholder="Your Email" name="pemail" type="email" required data-parsley-required-message="Please enter email address" data-parsley-type="email" data-parsley-type-message="Please enter valid email address "  data-parsley-trigger="keyup">
 			    		</div>
 
                         <div class="form-group">
-			    		    <input class="form-control" placeholder="Your Age" name="page" type="text">
+			    		    <input class="form-control" placeholder="Your Age" name="page" type="text" required data-parsley-required-message="Please enter age"
+							data-parsley-type="number" min="1" max="120"
+							data-parsley-type-message="Please enter only number" data-parsley-min-message="Age must be greater than 1"
+							data-parsley-range-message="Please enter valid age"   data-parsley-trigger="keyup">
 			    		</div>
 
                         <div class="form-group">
@@ -41,14 +45,14 @@
 			    		</div>
 
                         <div class="form-group">
-			    		    <textarea class="form-control" name="paddress" cols="45" rows="2" placeholder="Your Address"></textarea>
+			    		    <textarea class="form-control" name="paddress" cols="45" rows="2" placeholder="Your Address" required data-parsley-required-message="Please enter address" data-parsley-minlength="15" data-parsley-minlength-message="Address should be minimum 15 character"  data-parsley-trigger="keyup"></textarea>
 			    		</div>
 
 			    		<div class="form-group">
-			    			<input class="form-control" placeholder="Password" name="ppass" type="password" id="password">
+			    			<input class="form-control" placeholder="Password" name="ppass" type="password" id="password" required data-parsley-required-message="Please enter password" data-parsley-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/" data-parsley-pattern-message=" a password must be 8 character including one uppercase letter, one special character and one number"  data-parsley-trigger="keyup">
 			    		</div>
                         <div class="form-group">
-			    			<input class="form-control" type="password" placeholder="Confirm Password" name="cpassword" type="pcpass" id="cpassword">
+			    			<input class="form-control" type="password" placeholder="Confirm Password" name="cpassword" type="pcpass" id="cpassword" required data-parsley-required-message="Please enter confirm password" data-parsley-equalto="#password" data-parsley-equalto-message="Password are not matching"  data-parsley-trigger="keyup">
 			    		</div>
 			    		<div class="checkbox">
 			    	    	<label>

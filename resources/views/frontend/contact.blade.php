@@ -32,19 +32,19 @@
         @csrf
       <div class="name">
         <label for="name"></label>
-        <input type="text" placeholder="My name is" name="name" id="name_input" required>
+        <input type="text" placeholder="My name is" name="name" id="name_input" required data-parsley-required-message="Please enter name" data-parsley-pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$" data-parsley-pattern-message="please enter only characters" data-parsley-minlength="3" data-parsley-minlength-message="Name should be minimum 3 character" data-parsley-trigger="keyup">
       </div>
       <div class="email">
         <label for="email"></label>
-        <input type="email" placeholder="My e-mail is" name="email" id="email_input" required>
+        <input type="email" placeholder="My e-mail is" name="email" id="email_input" required data-parsley-required-message="Please enter email address" data-parsley-type="email" data-parsley-type-message="Please enter valid email address "  data-parsley-trigger="keyup">
       </div>
       <div class="telephone">
         <label for="name"></label>
-        <input type="tel" maxlength="10" placeholder="My MobileNo is" name="mobile" id="telephone_input" required>
+        <input type="tel" maxlength="10" placeholder="My MobileNo is" name="mobile" id="telephone_input" required data-parsley-required-message="Please enter mobile number" data-parsley-type="number" data-parsley-type-message="Please enter valid mobile number"  data-parsley-pattern="^[1-9]{1}[0-9]{9}$" data-parsley-pattern-message="Please enter valid mobile number" data-parsley-maxlength="10" data-parsley-maxlength-message="Mobile number should be exactly 10 digit" data-parsley-minlength="10" data-parsley-minlength-message="Mobile number should be exactly 10 digit" data-parsley-trigger="keyup">
       </div>
       <div class="subject">
         <label for="subject"></label>
-        <select placeholder="Subject line" name="subject" id="subject_input" required>
+        <select placeholder="Subject line" name="subject" id="subject_input" required data-parsley-required-message="Please select subject" >
           <option disabled hidden selected>Subject line</option>
           <option value="Related to appoinment issue">Related to appoinment issue</option>
           <option value="Related to medicine issue">Related to medicine issue</option>
@@ -54,7 +54,7 @@
       </div>
       <div class="message">
         <label for="message"></label>
-        <textarea name="message" placeholder="I'd like to chat about" id="message_input" cols="30" rows="5" maxlength="255" required></textarea>
+        <textarea name="message" placeholder="I'd like to chat about" id="message_input" cols="30" rows="5" maxlength="255" required data-parsley-required-message="Please enter anu query"></textarea>
       </div>
       <div class="submit">
         <input type="submit" value="Send Message" id="form_button" />

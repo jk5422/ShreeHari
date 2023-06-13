@@ -144,7 +144,7 @@
                             <div class="row h-100 align-items-center justify-content-center">
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                     <div class="mb-3">
-                                        <fieldset class="form-control gender bg-white">
+                                        <fieldset class="form-control gender bg-white" required>
                                             <legend style="font-size: 15px;">Select Status</legend>
                                             <input type="radio" class="" name="upast" id="confirm"
                                                 value="1">
@@ -182,7 +182,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ url('pendappoinments/uapdata') }}" method="POST">
+                        <form action="{{ url('pendappoinments/uapdata') }}" method="POST" id="updateapp">
                             @csrf
                             <div class="row h-100 align-items-center justify-content-center">
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -196,7 +196,7 @@
                             <div class="row h-100 align-items-center justify-content-center">
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                     <div class="form-floating mb-3">
-                                        <input type="date" name="uapdate"  class="form-control mydate" onchange="getday(this.value)" required>
+                                        <input type="date" name="uapdate"  class="form-control mydate" onchange="getday(this.value)" required data-parsley-required-message="Please select appointment date">
                                         <label class="form-check-label labels">Select appoinment date</label>
                                     </div>
                                 </div>
@@ -204,7 +204,7 @@
                             <div class="row h-100 align-items-center justify-content-center">
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                     <div class="form-floating mb-3">
-                                        <select class="form-control mytime" name="uaptime" id="aptime" onchange="timeslot()" required>
+                                        <select class="form-control mytime" name="uaptime" id="aptime" onchange="timeslot()" required data-parsley-required-message="Please select time slot">
                                             <option value="">--Select Time Slot--</option>
                                             <option value="09:00AM - 10:00AM">09:00AM - 10:00AM</option>
                                             <option value="10:00AM - 11:00AM">10:00AM - 11:00AM</option>
@@ -244,7 +244,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ url('pendappoinments/addprescription') }}" method="POST">
+                        <form action="{{ url('pendappoinments/addprescription') }}" method="POST" id="addprescription">
                             @csrf
 
                             <div class="row h-100 align-items-center justify-content-center">
@@ -277,7 +277,7 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td scope="row"><select id="medcnid"></select></td>
+                                                    <td scope="row"><select id="medcnid" required data-parsley-required-message="Please select medicine name"></select></td>
                                                     <td>
                                                         <select id="mrng">
                                                             <option value="">--Select--</option>

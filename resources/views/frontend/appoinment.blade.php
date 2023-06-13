@@ -72,14 +72,14 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="labels">Select appoinment date</label>
-                                <input type="date" name="apdate" class="form-control mydate" onchange="getday(this.value)" required>
+                                <input type="date" name="apdate" class="form-control mydate" onchange="getday(this.value)" required data-parsley-required-message="Please select appointment date">
                                 <span id="msg"></span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <label class="labels">Select time slot</label>
-                                <select class="form-control mytime" name="aptime" id="aptime" onchange="timeslot()" required>
+                                <select class="form-control mytime" name="aptime" id="aptime" onchange="timeslot()" required data-parsley-required-message="Please select time slot">
                                     <option value="">--Select Time Slot--</option>
                                     <option value="09:00AM - 10:00AM">09:00AM - 10:00AM</option>
                                     <option value="10:00AM - 11:00AM">10:00AM - 11:00AM</option>
@@ -98,7 +98,7 @@
 
                             <div class="col-md-6">
                                 <label class="labels">Select Doctor</label>
-                                <select class="form-control mydctr" name="apdctr" id="apdctr" onchange="getclinic(this.value)" required>
+                                <select class="form-control mydctr" name="apdctr" id="apdctr" onchange="getclinic(this.value)" required data-parsley-required-message="Please select doctor">
                                     <option value="">--Select Doctor--</option>
                                     @foreach ($doctor as $doct)
                                     <option value="{{$doct['did']}}">{{$doct['dname']}}</option>
@@ -113,14 +113,14 @@
 
                             <div class="col-md-6">
                                 <label class="labels">Select Clinic</label>
-                                <select class="form-control myclnc" name="apclnc" id="apclnc" required>
+                                <select class="form-control myclnc" name="apclnc" id="apclnc" required data-parsley-required-message="Please select clinic">
                                     <option value="">Select Clinic</option>
                                 </select>
                             </div>
 
                             <div class="col-md-6">
                                 <label class="labels">Select Services</label>
-                                <select class="form-control mysrvc" name="apsrvc" id="apsrvc" required>
+                                <select class="form-control mysrvc" name="apsrvc" id="apsrvc" required data-parsley-required-message="Please select service" >
                                     <option value="">--Select Services-- </option>
                                 </select>
                             </div>

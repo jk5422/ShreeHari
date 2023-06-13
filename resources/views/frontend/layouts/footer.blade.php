@@ -97,6 +97,7 @@
 <script src="{{ url('frontend/js/custom.js') }}"></script>
 <script src="{{ url('frontend/js/nicepage.js') }}"></script>
 <script src="{{ url('frontend/js/datatable.js') }}"></script>
+<script src="{{ url('frontend/js/parsley.js') }}"></script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <script>
@@ -132,6 +133,15 @@
 
     $(document).ready(function() {
         $('#example').DataTable();
+        $('#login').parsley();
+        $('#register').parsley();
+        $('#forget').parsley();
+        $('#otp').parsley();
+        $('#pprofile').parsley();
+        $('#changepass').parsley();
+        $('#updateapp').parsley();
+        $('#apnt').parsley();
+        $('#contact_form').parsley();
     });
 </script>
 

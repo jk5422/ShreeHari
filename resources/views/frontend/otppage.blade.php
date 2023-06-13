@@ -26,10 +26,10 @@
 			    	<h3 class="panel-title">OTP Verify & Set New Password</h3>
 			 	</div>
 			  	<div class="panel-body">
-			    	<form  role="form">
+			    	<form  role="form" id="otp">
                     <fieldset>
 			    	  	<div class="form-group">
-			    		    <input class="form-control otp" placeholder="Enter Otp received on email" maxlength="6" name="fusername" type="tel" required>
+			    		    <input class="form-control otp" placeholder="Enter Otp received on email" maxlength="6" name="fusername" type="tel" required onkeypress="return event.charCode >= 48 && event.charCode <= 57" data-parsley-type="number" data-parsley-required-message="Please enter OTP">
                             <input type="hidden" class="pemail" name="fusername" value="{{$email}}">
 			    		</div>
 			    	  	<div class="form-group">
@@ -47,8 +47,11 @@
                     <form class="newcred" style="display: none;">
                         <div class="form-group">
                             <input type="hidden" class="npemail" name="npemail" value="{{$email}}">
-			    		    <input class="form-control" placeholder="Enter New Password" name="npass" type="password" id="password" required>
-                            <input class="form-control" placeholder="Enter Confirm Password" name="ncpass" id="cpassword" type="password" style="margin-top: 1rem;" required>
+			    		    <input class="form-control" placeholder="Enter New Password" name="npass" type="password" id="password" required data-parsley-required-message="Please enter password" data-parsley-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/" data-parsley-pattern-message=" a password must be 8 character including one uppercase letter, one special character and one number"  data-parsley-trigger="keyup">
+
+                            <input class="form-control" placeholder="Enter Confirm Password" name="ncpass" id="cpassword" type="password" style="margin-top: 1rem;" required
+                            data-parsley-required-message="Please enter confirm password" data-parsley-equalto="#password" data-parsley-equalto-message="Password are not matching"  data-parsley-trigger="keyup">
+
                             <div class="checkbox">
                                 <label>
                                     <input  type="checkbox" onclick="showlog()"> Show Password

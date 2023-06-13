@@ -73,6 +73,22 @@
 
     $(document).ready(function() {
         $('#example').DataTable();
+        $('#adddoc').parsley();
+        $('#updatedoc').parsley();
+        $('#changedpass').parsley();
+        $('#ddoctor').parsley();
+        $('#addnservice').parsley();
+        $('#updateser').parsley();
+        $('#dservice').parsley();
+        $('#updateapp').parsley();
+        $('#addmed').parsley();
+        $('#updatemed').parsley();
+        $('#dmedicine').parsley();
+        $('#addcli').parsley();
+        $('#updatecli').parsley();
+        $('#dclinic').parsley();
+        $('#addprescription').parsley();
+        $('#updatepre').parsley();
     });
     </script>
 </body>
