@@ -18,7 +18,7 @@ class PatientController extends Controller
     {
         if ($req->input('pname') != "" && $req->input('pmobile') != "" && $req->input('pemail') != "" && $req->input('page') != "" && $req->input('ppass') != "" && $req->input('paddress') != "")
         {
-            $cnt = patient::where('pname', 'LIKE', $req->input('pname'))->orwhere('pmobile', '=', $req->input('pmobile'))->orwhere('pemail', 'LIKE', $req->input('pemail'))->count();
+            $cnt = patient::where('pname', 'LIKE', $req->input('pname'))->where('pmobile', '=', $req->input('pmobile'))->where('pemail', 'LIKE', $req->input('pemail'))->count();
 
             if ($cnt >= 1) {
                 $req->session()->put('ptreg', "Patient account already exist..!!");
